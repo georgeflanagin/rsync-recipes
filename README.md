@@ -31,6 +31,7 @@ By default, ...
 - rsync does not recursively go through a directory tree.
 - rsync does not follow symbolic links -- it only copies the links as links.
 - rsync does not provide a narrative of its progress; it is quiet.
+- rsync does not consider any metadata except for a file's [1] name, [2] size, and [3] mo
 
 ### What are the most common options?
 
@@ -55,6 +56,8 @@ By default, ...
 ### Copy one file from alice to bob.
 
 `rsync myfile bob:~/.`
+
+myfile will appear at `bob:~/myfile`.
 
 ### Copy a file from bob to alice.
 
