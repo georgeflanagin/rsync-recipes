@@ -39,16 +39,29 @@ By default, ...
 `--dry-run` : essential for debugging, rsync can tell you what the command would do without really doing anything except for telling you.
 `-n` : same thing as `--dry-run`, but harder to spot in a script.
 
+### What are the most dangerous options?
+
+`--remove-source-files` : the option turns "copy" into "move"
+`--delete` : There are many flavors of `--delete`, and they remove files at the destination that are not referenced in the rsync command.
+
 ## The recipes
 
-### Copy one file
+### Copy one file from alice to bob.
 
 `rsync myfile bob:~/.`
+
+### Copy a file from bob to alice.
+
+`rsync bob:~/myfile .`
 
 ### Copy files using a wildcard file name
 
 `rsync myfiles* bob:~/.`
 
-### Copy a directory and the files in it
+### Copy a directory and the files in it, creating the directory at the destination.
 
-`rsync -a mydir
+`rsync -a mydir bob:~/
+
+### Copy the contents of a directory to a directory at the destination 
+
+`rsync -a mydir/ bob:~/somedir`
