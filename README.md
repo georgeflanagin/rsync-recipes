@@ -19,7 +19,7 @@ rsync [options] source destination
 The source and the destination can be on the same computer, in which case rsync behaves like cp and mv with 
 more flexibility and greater speed.
 
-The source does not need to be "here." You can copy files to your present login location or from it, but the
+The source does not need to be "here." You can copy files to your present login location or from the source, but the
 basic format of the command remains the same. In the recipes below, we will adopt the
 names often used in cryptography, *alice* and *bob*. Alice will always be the source, and Bob will be the
 destination. Except when called out, Alice will be our login computer; i.e., where we are.
@@ -36,11 +36,12 @@ By default, ...
 
 ### What are the most common options?
 
-`-r` : recursively traverse the directory where the command originates (the $PWD).
+`-r` : recursively traverse the directory mentioned as the source.
 
 `-a` : as with `-r`, but set the time stamps on the files at the destination to match the source. Useful for backups.
 
-`-v` : provide a haemorrhagic narrative of what's going on, as it happens.
+`-v` : provide a haemorrhagic narrative of what's going on, as it happens. Something to keep in mind: if you are
+using rsync to move several terabytes of data, this file is going to be *huge*.
 
 `--dry-run` : essential for debugging, rsync can tell you what the command would do without really doing anything except for telling you.
 
