@@ -7,10 +7,7 @@ rsync has one hard boundary: the program must be installed on both computers if 
 using it to move or copy files between them. rsync is installed by default in most Linux
 distros.
 
-### Generally speaking, how does it work?
-
-*Note:* the source and destination can most certainly be on the same computer. Unless we are discussing
-specifics about single computer operations, the examples assume that two computers are involved.
+### Generally speaking, how does rsync work?
 
 The *source* computer is the one where the files already exist that you want to move or copy or otherwise
 *synchronize*. The *destination* is the other computer. The general format for running rsync is:
@@ -18,6 +15,9 @@ The *source* computer is the one where the files already exist that you want to 
 ```bash
 rsync [options] source destination
 ```
+
+The source and the destination can be on the same computer, in which case rsync behaves like cp and mv with 
+more flexibility and greater speed.
 
 The source does not need to be "here." You can copy files to your present login location or from it, but the
 basic format of the command remains the same. In the recipes below, we will adopt the
@@ -31,7 +31,8 @@ By default, ...
 - rsync does not recursively go through a directory tree.
 - rsync does not follow symbolic links -- it only copies the links as links.
 - rsync does not provide a narrative of its progress; it is quiet.
-- rsync does not consider any metadata except for a file's [1] name, [2] size, and [3] mo
+- rsync does not consider any metadata except for a file's [1] name, [2] size, and [3] modification time. The
+  modification time is the one you see with `ls -l`.
 
 ### What are the most common options?
 
