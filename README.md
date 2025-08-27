@@ -34,14 +34,20 @@ By default, ...
 
 ### What are the most common options?
 
-`-a` : recursively traverse the directory where the command originates (the $PWD).
+`-r` : recursively traverse the directory where the command originates (the $PWD).
+
+`-a` : as with `-r`, but set the time stamps on the files at the destination to match the source. Useful for backups.
+
 `-v` : provide a haemorrhagic narrative of what's going on, as it happens.
+
 `--dry-run` : essential for debugging, rsync can tell you what the command would do without really doing anything except for telling you.
+
 `-n` : same thing as `--dry-run`, but harder to spot in a script.
 
 ### What are the most dangerous options?
 
 `--remove-source-files` : the option turns "copy" into "move"
+
 `--delete` : There are many flavors of `--delete`, and they remove files at the destination that are not referenced in the rsync command.
 
 ## The recipes
@@ -65,3 +71,7 @@ By default, ...
 ### Copy the contents of a directory to a directory at the destination 
 
 `rsync -a mydir/ bob:~/somedir`
+
+### Synchronize a directory on Alice with a directory on Bob
+
+`rsync -a --delete mydir bob:~/`
