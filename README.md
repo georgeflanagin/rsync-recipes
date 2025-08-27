@@ -71,7 +71,7 @@ myfile will appear at `bob:~/myfile`.
 
 ### Copy a directory and the files in it, creating the directory at the destination.
 
-`rsync -a mydir bob:~/
+`rsync -a mydir bob:~/`
 
 ### Copy the contents of a directory to a directory at the destination 
 
